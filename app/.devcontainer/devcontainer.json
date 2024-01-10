@@ -1,0 +1,25 @@
+{
+	"name": "PHP Dev Container",
+	"service": "web",
+	"dockerComposeFile": [
+		"./docker-compose.yaml"
+	],
+	"workspaceFolder": "/var/www/html",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"felixfbecker.php-pack",
+				"DEVSENSE.phptools-vscode",
+				"bradlc.vscode-tailwindcss"
+			]
+		}
+	},
+	// Enable SSH for connecting to the codespace
+	"features": {
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		}
+	},
+	// Stops all containers when the dev container is stopped.
+	"shutdownAction": "stopCompose"
+}

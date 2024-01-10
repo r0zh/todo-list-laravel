@@ -1,0 +1,39 @@
+services:
+  # web service, built from Dockerfile in current directory
+  web:
+    build: .
+    container_name: web-service-laravel
+    volumes:
+      - ../.:/var/www/html
+    ports:
+      - '80:80'
+
+  # database service, using stock MySQL image from Docker Hub
+  db:
+    image: 'mysql:latest'
+    container_name: db-service-laravel
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+      # initial sql scripts to create tables with sample data
+      - ./initdb:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: ArtiVision
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - '3306:3306'
+
+  # phpmyadmin service, using stock phpmyadmin image from Docker Hub
+  phpmyadmin:
+    image: 'phpmyadmin:latest'
+    container_name: phpmyadmin-service-laravel
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+    ports:
+      - '8000:80'
+
+volumes:
+  # volume for database data
+  db-data:
