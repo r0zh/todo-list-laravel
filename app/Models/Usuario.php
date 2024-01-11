@@ -12,16 +12,23 @@ class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // indicamos al modelo cuál es el nombre real de la tabla
+    protected $table = 'usuario';
+
+    // indicamos al modelo cuál es su clave primaria
+    protected $primaryKey = 'idUsu';
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    //protected $fillable = [
+    //    'name',
+    //    'email',
+    //    'password',
+    //];
 
     /**
      * The attributes that should be hidden for serialization.
