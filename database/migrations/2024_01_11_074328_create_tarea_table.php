@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tarea', function (Blueprint $table) {
             $table->id("idTar"); // crea por defecto el atributo id como clave primaria
+            $table->unsignedBigInteger("idUsu");
             $table->text("text");
             $table->boolean("completa")->default(false);
             $table->timestamp("fecha");
