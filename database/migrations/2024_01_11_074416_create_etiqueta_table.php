@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('etiqueta', function (Blueprint $table) {
             $table->id("idEti");
+            $table->string("etiqueta", 75);
+            $table->string("color", 7);
             $table->timestamps();
         });
     }
