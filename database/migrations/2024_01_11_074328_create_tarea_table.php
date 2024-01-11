@@ -20,6 +20,10 @@ return new class extends Migration
             // Laravel crea automáticamente los campos created_at y updated_at
             // que, posteriormente gestionará de forma automatica
             $table->timestamps(); 
+
+            // Creamos la relación de clave foránea con la tabla usuario
+            $table->foreignId("idUsu")->references("idUsu")->on("usuario")
+                    ->onDelete("cascade");
         });
     }
 
