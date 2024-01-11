@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id("idEti");
             $table->string("etiqueta", 75);
             $table->string("color", 7);
-            $table->timestamps();
         });
     }
 
