@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps(); 
 
             // Creamos la relación de clave foránea con la tabla usuario
-            $table->foreignId("idUsu")->references("idUsu")->on("usuario")
+            $table->foreign("idUsu")->references("idUsu")->on("usuario")
                     ->onDelete("cascade");
         });
     }
