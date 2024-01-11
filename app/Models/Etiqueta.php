@@ -14,4 +14,7 @@ class Etiqueta extends Model
 
     // indicamos al modelo cuál es su clave primaria
     protected $primaryKey = 'idEti';
+    
+    // indicamos al modelo que no vamos a utilizar los campos created_at y updated_at
+    public $timestamps = false;
 }
