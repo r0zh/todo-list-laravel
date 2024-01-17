@@ -47,4 +47,8 @@ class Usuario extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function tareas(){
+        return $this->hasMany(Tarea::class, "idUsu")->get();
+    }
 }
