@@ -15,6 +15,10 @@ class Tarea extends Model
     // indicamos al modelo cuál es su clave primaria
     protected $primaryKey = 'idTar';
 
+    protected $fillable = [
+        'text',"idUsu","fecha","completa"
+    ];
+
     public function usuario(){
         return $this->belongsTo(Usuario::class, "idUsu");
     }
