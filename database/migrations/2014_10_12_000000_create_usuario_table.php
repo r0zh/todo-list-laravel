@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->timestamps();
 
+            $table->timestamp("deleted_at")->nullable();
             // $table->timestamp('email_verified_at')->nullable();
 
             //$table->rememberToken();
