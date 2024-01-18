@@ -14,4 +14,12 @@ class Tarea extends Model
 
     // indicamos al modelo cuál es su clave primaria
     protected $primaryKey = 'idTar';
+
+    public function usuario(){
+        return $this->belongsTo(Usuario::class, "idUsu");
+    }
+
+    public function etiquetas(){
+        return $this->belongsToMany(Etiqueta::class, "tarea_etiqueta", "idTar", "idEti");
+    }
 }
