@@ -14,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/bienvenida", function(){
+    return view("Bienvenidos");
+});
+
+Route::post("/bienvenida", function(){
+    return "Hola mundo, desde POST";
+});
+
+Route::get("/tareas", function(){
+    $tareas = App\Models\Tarea::all();
+    foreach($tareas as $tarea){
+        echo $tarea->text . "<br>";
+    }
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
