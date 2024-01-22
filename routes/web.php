@@ -22,11 +22,11 @@ Route::post("/bienvenida", function(){
 })->name("bienvenidapost");
 
 
-Route::get("/usuario/{id}", function($id, Request $request){
+Route::get("/usuario/{id?}", function(Request $request, $id = 4){
     $usuario = \App\Models\Usuario::findOrFail($id);
     echo "Hola {$usuario->nombre}";
     dd($request);
-})->where("id", "[0-9]+")->name("usuario");
+})->name("usuario");
 
 Route::get('/', function () {
     return view('welcome');
