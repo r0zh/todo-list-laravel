@@ -20,12 +20,11 @@ Route::post("/bienvenida", function(){
     return "Hola mundo, desde POST";
 })->name("bienvenidapost");
 
-Route::get("/tareas", function(){
-    $tareas = App\Models\Tarea::all();
-    foreach($tareas as $tarea){
-        echo $tarea->text . "<br>";
-    }
-});
+
+Route::get("/usuario/{id}", function($id){
+    $usuario = \App\Models\Usuario::findOrFail($id);
+    return "Hola {$usuario->nombre}";
+})->where("id", "[0-9]+")->name("usuario");
 
 Route::get('/', function () {
     return view('welcome');
