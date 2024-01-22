@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/bienvenida", function(){
-    return view("Bienvenidos");
-});
+Route::view("/bienvenida", "Bienvenidos");
 
 Route::post("/bienvenida", function(){
     return "Hola mundo, desde POST";
-});
+})->name("bienvenidapost");
 
 Route::get("/tareas", function(){
     $tareas = App\Models\Tarea::all();
