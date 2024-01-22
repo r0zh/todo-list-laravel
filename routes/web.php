@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,7 @@ Route::post("/bienvenida", function(){
 })->name("bienvenidapost");
 
 
-Route::get("/usuario/{id?}", function(Request $request, $id = 4){
-    $usuario = \App\Models\Usuario::findOrFail($id);
-    echo "Hola {$usuario->nombre}";
-    dd($request);
-})->name("usuario");
+Route::get("/usuario/{id?}", [UsuarioController::class, "perfil"])->name("usuario");
 
 Route::get('/', function () {
     return view('welcome');
