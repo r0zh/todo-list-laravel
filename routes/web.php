@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| routes are loaded by the RouteServviceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
@@ -21,9 +22,10 @@ Route::post("/bienvenida", function(){
 })->name("bienvenidapost");
 
 
-Route::get("/usuario/{id}", function($id){
+Route::get("/usuario/{id}", function($id, Request $request){
     $usuario = \App\Models\Usuario::findOrFail($id);
-    return "Hola {$usuario->nombre}";
+    echo "Hola {$usuario->nombre}";
+    dd($request);
 })->where("id", "[0-9]+")->name("usuario");
 
 Route::get('/', function () {
