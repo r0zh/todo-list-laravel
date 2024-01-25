@@ -9,7 +9,7 @@ use App\Models\Tarea;
 class UsuarioController extends Controller
 {
     public function main(){
-        return view("usuario.main", ["tareas" => Tarea::where('idUsu',3)]);
+        return view("usuario.main", ["tareas" => Tarea::where('idUsu',10)->get()]);
     }
 
     public function perfil (Request $request, $id = 4){
