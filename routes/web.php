@@ -22,6 +22,7 @@ Route::post("/bienvenida", function(){
     return "Hola mundo, desde POST";
 })->name("bienvenidapost");
 
+Route::get("/main", [UsuarioController::class, "main"])->name("main");
 
 Route::get("/usuario/{id?}", [UsuarioController::class, "perfil"])->name("usuario");
 
