@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Tarea;
 
-
 class UsuarioController extends Controller
 {
-    public function main(Request $request){
-        return view("usuario.main", ["tareas" => Tarea::where('idUsu',3)->tareas()]);
+    public function main(){
+        return view("usuario.main", ["tareas" => Tarea::where('idUsu',3)]);
     }
 
     public function perfil (Request $request, $id = 4){

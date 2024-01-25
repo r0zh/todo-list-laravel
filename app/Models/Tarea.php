@@ -19,6 +19,10 @@ class Tarea extends Model
         'text',"idUsu","fecha","completa"
     ];
 
+    protected $casts = [
+        'fecha' => 'date',
+    ];
+
     public function usuario(){
         return $this->belongsTo(Usuario::class, "idUsu");
     }
